@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Unlock 6.0</title>
+  <title>Unlock 7.0</title>
   <style>
     :root{
       --blue:#2d8cff;
@@ -13,19 +13,16 @@
       --text:#0b1220;
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:-apple-system, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased}
+    html,body{height:100%;margin:0;font-family:-apple-system,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
     a{color:inherit;text-decoration:none}
 
-    /* Top appbar */
-    .appbar{position:sticky;top:0;background:#fff;border-bottom:1px solid #e9e9e9;z-index:40;backdrop-filter: blur(6px)}
+    .appbar{position:sticky;top:0;background:#fff;border-bottom:1px solid #e9e9e9;z-index:40;backdrop-filter:blur(6px)}
     .appbar-inner{max-width:980px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
     .appstore-icon{height:22px;opacity:.96}
     .appbar-title{font-weight:700;font-size:18px}
 
-    /* Container */
     .container{max-width:980px;margin:0 auto;padding:16px 16px 90px}
 
-    /* Hero section: icon + info */
     .hero{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px}
     .app-icon-wrap{width:92px;height:92px;border-radius:22px;background:var(--card);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(12,24,48,0.06)}
     .app-icon{width:86px;height:86px;border-radius:18px;object-fit:cover}
@@ -36,70 +33,41 @@
     .developer{color:var(--muted);margin:6px 0;font-weight:600}
     .meta{color:var(--muted);margin-bottom:12px}
 
-    /* Buttons */
     .actions{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:10px 18px;border-radius:22px;font-weight:800;text-align:center}
+    .btn{display:inline-block;padding:10px 18px;border-radius:22px;font-weight:800;text-align:center;cursor:pointer}
     .btn.primary{background:var(--blue);color:#fff;box-shadow:0 6px 18px rgba(45,140,255,0.18)}
     .btn.ghost{background:transparent;border:2px solid rgba(45,140,255,0.12);color:var(--blue)}
 
-    /* Section headings */
     .section{background:transparent;padding:18px 0;border-top:1px solid #ececec}
     .section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
     .section-head h2{margin:0;font-size:18px;color:var(--text);font-weight:800}
     .platforms a{margin-left:12px;color:var(--blue);font-weight:700}
 
-    /* Screenshot list (horizontal scroll) */
     .screenshot-list{display:flex;gap:14px;overflow-x:auto;padding:10px 2px 20px 2px;list-style:none;margin:0;-webkit-overflow-scrolling:touch}
     .screenshot-list li{flex:0 0 auto;width:82%;max-width:640px}
     .screenshot-list img{width:100%;height:auto;border-radius:16px;box-shadow:0 14px 36px rgba(14,22,40,0.12);display:block;object-fit:cover}
 
-    /* Big blue gallery heading with shadow */
-    .gallery-heading{
-      font-size:30px;
-      line-height:1.04;
-      text-align:center;
-      color:var(--blue);
-      font-weight:900;
-      margin:22px 0 12px;
-      text-shadow: 0 8px 0 rgba(0,0,0,0.03), 0 12px 22px rgba(45,140,255,0.12);
-      padding:0 8px;
-    }
+    .gallery-heading{font-size:30px;line-height:1.04;text-align:center;color:var(--blue);font-weight:900;margin:22px 0 12px;text-shadow:0 8px 0 rgba(0,0,0,0.03),0 12px 22px rgba(45,140,255,0.12);padding:0 8px}
 
-    /* Horizontal gallery (swipe) - instruction screenshots */
     .gallery-scroll{display:flex;gap:12px;overflow-x:auto;padding:12px 6px 20px 6px;-webkit-overflow-scrolling:touch}
-.gallery-scroll img{
-  flex:0 0 82%;
-  max-height:420px;         /* Giới hạn chiều cao ảnh */
-  width:auto;
-  border-radius:14px;
-  box-shadow:0 16px 40px rgba(10,20,40,0.12);
-  object-fit:contain;       /* Hiển thị đủ ảnh, không crop */
-  background:#fff;          /* nền trắng nếu ảnh nhỏ hơn khung */
-}
+    .gallery-scroll img{flex:0 0 82%;max-height:420px;width:auto;border-radius:14px;box-shadow:0 16px 40px rgba(10,20,40,0.12);object-fit:contain;background:#fff}
 
-
-    /* Whats new / demo image */
     .whats-new{padding:6px 0 0 0}
     .whats-new-title{font-weight:800;text-align:center;color:#203040;margin:8px 0 12px}
     .demo-image{width:100%;border-radius:12px;border:1px solid #eee;box-shadow:0 12px 32px rgba(8,18,36,0.08);display:block}
 
-    /* Text blocks */
     .lead-text{color:var(--muted);line-height:1.6}
     .muted-list{margin:8px 0 0 0;color:var(--muted);line-height:1.6}
 
-    /* Footer */
     .footer{padding:20px 0;text-align:center;color:var(--muted);font-weight:600}
     .footer a{color:#ff6a00;text-decoration:none;font-weight:800}
 
-    /* Small screens tweaks */
     @media (max-width:420px){
       .title{font-size:20px}
       .gallery-heading{font-size:26px}
       .screenshot-list li{width:86%}
       .gallery-scroll img{flex:0 0 86%}
     }
-
-    /* Desktop */
     @media (min-width:900px){
       .container{padding:28px}
       .hero{align-items:center}
@@ -107,102 +75,77 @@
       .gallery-scroll img{flex:0 0 32%}
       .gallery-heading{font-size:36px}
     }
-
-    /* subtle iphone-style rounded bottom toolbar space */
     .bottom-space{height:72px}
   </style>
 </head>
 <body>
   <header class="appbar">
     <div class="appbar-inner">
-      <!-- icon app store -->
       <img class="appstore-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/App_Store_%28iOS%29.svg/1024px-App_Store_%28iOS%29.svg.png" alt="App Store">
       <span class="appbar-title">App Store</span>
     </div>
   </header>
 
   <main class="container">
-    <!-- Noti -->
     <section class="hero" aria-label="Thông tin ứng dụng">
       <div class="app-icon-wrap">
-        <!-- Icon app -->
-        <img class="app-icon" src="https://play-lh.googleusercontent.com/aiocmTXcDz63jPoDOMtf9cHcnCMZ4Y8sLBG5DzxNLqS3GcvWhybRXVyKA9r_5UJp1j9BuDrpK6xF5T8Eo0Oa" alt="Icon">
+        <img class="app-icon" src="https://play-lh.googleusercontent.com/29k6AAX1NYWPdnRmVm86NgvDlywy9o3TnNBJrbHWm3emdLB2dGrxdgc05f621I1kMVSph8U1igCpx3XTdS8blQ=w480-h960" alt="Icon">
       </div>
 
       <div class="hero-right">
         <div class="title-row">
-          <h1 class="title">Unlock Skin LQ 6.0</h1>
+          <h1 class="title">Unlock Skin LQ 7.0</h1>
           <div class="badge"></div>
         </div>
 
         <div class="developer"></div>
-        <div class="meta"><span>Miễn phí</span> · <span>27/9/2025</span></div>
+        <div class="meta"><span>Miễn phí</span> · <span>7/10/2025</span></div>
 
         <div class="actions">
-          <!-- Link button -->
-          <a class="btn primary" href="itms-services://?action=download-manifest&url=https://TumadamMod.github.io/autoup/manifest-1759761058353.plist">Cài Đặt</a>
-          <a class="btn ghost" href="https://authtool.app/get-key/?code=6f20bfc4-d037-4115-9bb6-19968045086e">Get Key </a>
+          <a id="installBtn" class="btn primary">Cài Đặt</a>
+          <a class="btn ghost" href="https://authtool.app/get-key/?code=6f20bfc4-d037-4115-9bb6-19968045086e">Get Key</a>
         </div>
       </div>
     </section>
 
-    <!-- Review -->
     <section class="section screenshots" aria-label="Screenshot">
       <div class="section-head">
         <h2>Xem Trước</h2>
-        <div class="platforms"><a class="active">iPhone</a> <a></a></div>
+        <div class="platforms"><a class="active">iPhone</a></div>
       </div>
 
       <ul class="screenshot-list" role="list">
-        <!-- Ảnh Review -->
-        <li><img src="https://i.imgur.com/hhTGrkO.png" alt="screenshot 1"></li>
-        <li><img src="https://i.imgur.com/10ug53l.png" alt="screenshot 2"></li>
-        <li><img src="https://i.imgur.com/dYPduky.png" alt="screenshot 3"></li>
-                <li><img src="https://i.imgur.com/JeVJFCu.png" alt="screenshot 4"></li>
+        <li><img src="https://i.imgur.com/YvU9F7x.jpeg" alt="screenshot 1"></li>
+        <li><img src="https://i.imgur.com/JzSsouh.jpeg" alt="screenshot 2"></li>
+        <li><img src="https://i.imgur.com/ymE1rk5.jpeg" alt="screenshot 3"></li>
+        <li><img src="https://i.imgur.com/hclOzSu.jpeg" alt="screenshot 4"></li>
+                <li><img src="https://i.imgur.com/m7WzUro.jpeg" alt="screenshot 5"></li>
       </ul>
     </section>
 
-    <!-- Tin cậy -->
     <section class="section gallery-instructions">
       <div class="gallery-heading">Hướng Dẫn Tin Cậy</div>
-
-      <div class="gallery-scroll" aria-hidden="false">
-        <!-- tin cậy -->
+      <div class="gallery-scroll">
         <img src="https://i.imgur.com/56TqnFh.png" alt="Hướng dẫn 1">
         <img src="https://i.imgur.com/ZiXN2n7.png" alt="Hướng dẫn 2">
         <img src="https://i.imgur.com/5KIIyuG.png" alt="Hướng dẫn 3">
       </div>
     </section>
 
-<!-- cách dùng -->
-<section class="section whats-new">
-  <h3 class="whats-new-title">Hướng Dẫn Sử Dụng</h3>
-  
-  <!-- Video YouTube -->
-  <div class="video-wrapper">
-    <iframe 
-      width="100%" 
-      height="315" 
-      src="https://www.youtube.com/embed/Gs06zkAIotc" 
-      title="YouTube video player" 
-      frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-      allowfullscreen>
-    </iframe>
-  </div>
+    <section class="section whats-new">
+      <h3 class="whats-new-title">Hướng Dẫn Sử Dụng</h3>
+      <div class="video-wrapper">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/Gs06zkAIotc" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p class="lead-text muted-list">
+        Phiên bản 1.59.1.9<br>
+        Fix Icon Menu
+      </p>
+    </section>
 
-  <p class="lead-text muted-list">
-    Phiên bản 1.59.1.9<br>
-    Fix Văng, Update Nút Mới, Thông Báo Mới, Chống Band Vặt,Fix Skin Bị Ảo,Thêm Mod Files
-  </p>
-</section>
-
-
-    <!-- PRIVACY & INFO -->
     <section class="section">
       <h2>Quyền Riêng Tư Của Ứng Dụng</h2>
-      <p class="lead-text">Nhà phát triển, <strong>Tumadam Mod</strong>, đã cho biết rằng phương thức đảm bảo quyền riêng tư của ứng dụng có thể bao gồm việc xử lý dữ liệu như được mô tả ở bên dưới. Để biết thêm thông tin, hãy xem chính sách quyền riêng tư của nhà phát triển.</p>
-
+      <p class="lead-text">Nhà phát triển, <strong>Tumadam Mod</strong>, đã cho biết rằng phương thức đảm bảo quyền riêng tư của ứng dụng có thể bao gồm việc xử lý dữ liệu như được mô tả ở bên dưới.</p>
       <h3 style="margin-top:18px;font-weight:800">Thông Tin</h3>
       <p class="muted-list"><strong>Nhà cung cấp</strong><br>Vũ Lê</p>
       <p class="muted-list"><strong>Kích cỡ</strong><br>185,5 MB</p>
@@ -212,27 +155,36 @@
     <footer class="footer">
       <p>© 2025 <a href="https://tumadammod.github.io">Tumadam Mod</a>. All rights reserved.</p>
     </footer>
-
-    <div class="bottom-space" aria-hidden="true"></div>
+    <div class="bottom-space"></div>
   </main>
 
-  <script>
-    // JS nhỏ: khi click platform iPhone/iPad thì chỉ toggle class 
-    document.querySelectorAll('.platforms a').forEach((el, i) => {
-      el.addEventListener('click', function(e){
-        e.preventDefault();
-        document.querySelectorAll('.platforms a').forEach(a => a.style.opacity=0.6);
-        el.style.opacity = 1;
-      });
-    });
+<script>
+const btn = document.getElementById("installBtn");
+btn.addEventListener("click", e => {
+  e.preventDefault();
+  // tạo khung chọn trong trang
+  const box = document.createElement("div");
+  box.innerHTML = `
+    <div style="position:fixed;inset:0;background:rgba(0,0,0,0.6);
+                display:flex;align-items:center;justify-content:center;z-index:9999">
+      <div style="background:#fff;padding:20px;border-radius:12px;text-align:center;width:280px">
+        <p style="margin:0 0 16px 0;font-weight:700">Chọn phiên bản bạn muốn tải:</p>
+        <button id="ver7" style="padding:8px 16px;margin:4px;border:none;border-radius:8px;background:#2d8cff;color:#fff;font-weight:700">Tải 7.0</button>
+        <button id="ver6" style="padding:8px 16px;margin:4px;border:none;border-radius:8px;background:#ccc;font-weight:700">Tải 6.0</button>
+        <button id="cancel" style="margin-top:10px;background:none;border:none;color:#666">Hủy</button>
+      </div>
+    </div>`;
+  document.body.appendChild(box);
 
-    // Thêm "snap" mượt cho gallery trên iOS
-    document.querySelectorAll('.screenshot-list, .gallery-scroll').forEach(el=>{
-      el.style.scrollSnapType = 'x mandatory';
-      Array.from(el.querySelectorAll('img, li')).forEach(item=>{
-        item.style.scrollSnapAlign = 'center';
-      });
-    });
-  </script>
+  box.querySelector("#ver7").onclick = () => {
+    window.location.href = "itms-services://?action=download-manifest&url=https://TumadamMod.github.io/autoup/manifest-1759849912260.plist";
+  };
+  box.querySelector("#ver6").onclick = () => {
+    window.location.href = "itms-services://?action=download-manifest&url=https://TumadamMod.github.io/autoup/manifest-1759849786804.plist";
+  };
+  box.querySelector("#cancel").onclick = () => box.remove();
+});
+</script>
+
 </body>
 </html>
